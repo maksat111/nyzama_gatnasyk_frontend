@@ -50,7 +50,7 @@ const Login = () => {
                     }
                 </div>
 
-                <button type="submit">{loading ? <LoadingOutlined /> : "Log In"}</button>
+                <button className='login_button' type="submit">{loading ? <LoadingOutlined /> : "Log In"}</button>
             </form>
         </div>
     )
