@@ -17,26 +17,16 @@
 
 .navbar_items{
     display: flex;
+    align-items: center;
     flex-direction: row;
     gap: 30px;
-}
-
-.navbar_items a{
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.navbar_items a:hover{
-    color: rgb(215, 215, 215);
 }
 
 .navbar_item_with_user{
     display: flex;
+    align-items: center;
     flex-direction: row;
-    gap: 30px;
+    gap: 5px;
 }
 
 .navbar_item_with_user p{
@@ -44,6 +34,10 @@
     align-items: center;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.navbar_item_with_user:hover{
+    color: rgb(215, 215, 215);
 }
 
 
@@ -61,11 +55,13 @@
 
 .logout{
     background-color: red;
-    padding: 15px;
+    padding: 13px;
     border-radius: 10px;
+    height: 13px;
+    transition: 0.3s;
 }
 
 .logout:hover{
-    background-color: rgb(255, 103, 103);
+    background-color: rgb(253, 91, 91);
     color: white;
 }

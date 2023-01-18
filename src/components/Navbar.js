@@ -1,31 +1,38 @@
 import React from 'react';
+import { UserOutlined, LogoutOutlined, DashboardOutlined, FormOutlined, OrderedListOutlined } from '@ant-design/icons';
 import logo from '../images/logo.png';
 import './Navbar.css'
 
 function Navbar() {
-    const navbarItems = [
+    const iconStyle = { fontSize: '22px', transition: '0.3s' }
+    const navbarItemWithIcon = [
         {
             itemName: 'Gatnaşyk almak',
-            href: '/gatnasyk'
+            className: '',
+            href: '/gatnasyk',
+            icon: <FormOutlined style={iconStyle} />
         },
         {
             itemName: 'Hasabat',
-            href: '/hasabat'
+            className: '',
+            href: '/hasabat',
+            icon: <OrderedListOutlined style={iconStyle} />
         },
         {
             itemName: 'Admin',
-            href: '/admin'
-        }
-    ];
-
-    const navbarItemWithIcon = [
+            className: '',
+            href: '/admin',
+            icon: <DashboardOutlined style={iconStyle} />
+        },
         {
             itemName: 'Maksat Akmyradow',
-            className: ''
+            className: '',
+            icon: <UserOutlined style={iconStyle} />
         },
         {
             itemName: 'Çykmak',
-            className: 'logout'
+            className: 'logout',
+            icon: <LogoutOutlined style={iconStyle} />
         }
     ]
 
@@ -35,10 +42,12 @@ function Navbar() {
                 <img src={logo} alt='logo' />
             </div>
             <div class="navbar_items">
-                {navbarItems.map(item => <a href={item.href}>{item.itemName}</a>)}
-                <div className='navbar_item_with_user'>
-                    {navbarItemWithIcon.map(item => <p className={item.className}>{item.itemName}</p>)}
-                </div>
+                {navbarItemWithIcon.map(item =>
+                    <div className={`navbar_item_with_user ${item.className}`}>
+                        {item.icon}
+                        <p>{item.itemName}</p>
+                    </div>
+                )}
             </div>
         </nav>
     );
