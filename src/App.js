@@ -1,9 +1,13 @@
 import './App.css';
-import Login from './pages/Login/Login';
+import Navbar from './components/Navbar';
+import Welcome from './pages/Welcome/Welcome';
 
 function App() {
   return (
-    <Login />
+    <div>
+      <Navbar />
+      <Welcome />
+    </div>
   );
 }
 

@@ -1,0 +1,24 @@
+.welcome_image{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+    /* filter: blur(5px); */
+    filter: saturate(200%) alpha(opacity = 20);
+}
+
+.welcome_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    width: 100vw;
+}
+
+.welcome_content{
+    color: white;
+    width: 800px;
+    height: 300px;
+}
