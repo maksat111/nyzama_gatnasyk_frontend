@@ -4,7 +4,7 @@ import logo from '../images/logo.png';
 import './Navbar.css'
 
 function Navbar() {
-    const iconStyle = { fontSize: '22px', transition: '0.3s' }
+    const iconStyle = { fontSize: '19px', transition: '0.3s' }
     const navbarItemWithIcon = [
         {
             itemName: 'Gatnaşyk almak',
@@ -41,9 +41,9 @@ function Navbar() {
             <div className='logo_container'>
                 <img src={logo} alt='logo' />
             </div>
-            <div class="navbar_items">
+            <div class="navbar_items_container">
                 {navbarItemWithIcon.map(item =>
-                    <div className={`navbar_item_with_user ${item.className}`}>
+                    <div className={`navbar_item ${item.className}`}>
                         {item.icon}
                         <p>{item.itemName}</p>
                     </div>

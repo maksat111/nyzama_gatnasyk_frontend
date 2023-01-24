@@ -14,28 +14,28 @@
     font-weight: 400;
 }
 
-.navbar_items{
+.navbar_items_container{
     display: flex;
     align-items: center;
     flex-direction: row;
     gap: 30px;
 }
 
-.navbar_item_with_user{
+.navbar_item{
     display: flex;
     align-items: center;
     flex-direction: row;
     gap: 5px;
 }
 
-.navbar_item_with_user p{
+.navbar_item p{
     display: flex;
     align-items: center;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.navbar_item_with_user:hover{
+.navbar_item:hover{
     color: rgb(215, 215, 215);
 }
 
