@@ -2,34 +2,30 @@ import React, { useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import { LoadingOutlined, UserOutlined, EyeOutlined, EyeInvisibleOutlined, LockOutlined } from '@ant-design/icons'
 import './Login.css'
-// import { axiosInstance } from '../../utils/axiosIntance';
+import { loginPost } from '../../config/axios';
 import { message } from 'antd';
 
 const Login = () => {
     // const history = useHistory();
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [type, setType] = useState("password");
-    const handleSubmit = (e) => {
-        // e.preventDefault();
-        // setLoading(true);
-        // axiosInstance.post('admin/login', { email, password }).then(res => {
-        //     console.log(res)
-        //     if (res.data.login) {
-        //         message.success("Üstünlükli!");
-        //         localStorage.setItem('TDY-token', res.data.token);
-        //         // history.push('/requests');
-        //         window.location.href = "/requests";
-        //     }
-        //     if (!res.data.login) {
-        //         message.error(res.data.msg);
-        //     }
-        //     setLoading(false);
-        // }).catch((err) => {
-        //     message.error(err.message);
-        //     setLoading(false);
-        // });
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        const res = await loginPost(username, password);
+        console.log(res)
+        if (res.success == 1) {
+            localStorage.setItem('nyzam_profile_info', JSON.stringify(res.data));
+            message.success('Successfully!');
+            window.location.href = "/requests"
+            setLoading(false);
+        } else {
+            message.error(res.msg);
+            setLoading(false);
+        }
+
     }
     return (
         <div className='login_page'>
@@ -39,7 +35,7 @@ const Login = () => {
 
                 <div className='input-container'>
                     <UserOutlined className='icon' />
-                    <input type="email" style={{ width: "395px" }} placeholder="Username" onChange={(e) => setEmail(e.target.value)} required />
+                    <input style={{ width: "395px" }} placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
                 </div>
 
                 <div className='input-container'>
