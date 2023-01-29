@@ -26,6 +26,8 @@
     align-items: center;
     flex-direction: row;
     gap: 5px;
+    color: white;
+    text-decoration: none;
 }
 
 .navbar_item p{

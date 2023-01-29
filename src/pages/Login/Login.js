@@ -19,7 +19,7 @@ const Login = () => {
         if (res.success == 1) {
             localStorage.setItem('nyzam_profile_info', JSON.stringify(res.data));
             message.success('Successfully!');
-            window.location.href = "/requests"
+            window.location.href = "/gatnasyk"
             setLoading(false);
         } else {
             message.error(res.msg);
@@ -35,12 +35,12 @@ const Login = () => {
 
                 <div className='input-container'>
                     <UserOutlined className='icon' />
-                    <input style={{ width: "395px" }} placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
+                    <input style={{ width: "395px" }} placeholder="Ulanyjynyň ady" onChange={(e) => setUsername(e.target.value)} required />
                 </div>
 
                 <div className='input-container'>
                     <LockOutlined className='icon' />
-                    <input type={type} placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                    <input type={type} placeholder="Açar sözi" onChange={(e) => setPassword(e.target.value)} required />
                     {type == 'password' ? <EyeOutlined className='icon' style={!password ? { color: 'white' } : { color: "rgb(73, 73, 231)" }} onClick={() => setType("text")} />
                         : <EyeInvisibleOutlined className='icon' onClick={() => setType("password")} />
                     }

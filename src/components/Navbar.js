@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { UserOutlined, LogoutOutlined, DashboardOutlined, FormOutlined, OrderedListOutlined } from '@ant-design/icons';
 import logo from '../images/logo.png';
 import './Navbar.css'
 
 function Navbar() {
-    const iconStyle = { fontSize: '19px', transition: '0.3s' }
+    const iconStyle = { fontSize: '18px', transition: '0.3s' }
     const navbarItemWithIcon = [
         {
             itemName: 'Gatnaşyk almak',
@@ -21,7 +22,7 @@ function Navbar() {
         {
             itemName: 'Admin',
             className: '',
-            href: '/admin',
+            href: '/dashboard',
             icon: <DashboardOutlined style={iconStyle} />
         },
         {
@@ -41,12 +42,12 @@ function Navbar() {
             <div className='logo_container'>
                 <img src={logo} alt='logo' />
             </div>
-            <div class="navbar_items_container">
+            <div className="navbar_items_container">
                 {navbarItemWithIcon.map(item =>
-                    <div className={`navbar_item ${item.className}`}>
+                    <Link className={`navbar_item ${item.className}`} to={item.href} key={item.itemName}>
                         {item.icon}
                         <p>{item.itemName}</p>
-                    </div>
+                    </Link>
                 )}
             </div>
         </nav>
