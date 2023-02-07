@@ -1,6 +1,6 @@
-import { Navigate, useLocation} from 'react-router-dom';
-import { isLogin } from '../utils/isLogin';
-  
+import { Navigate, useLocation } from 'react-router-dom';
+import { isLogin } from '.';
+
 const ProtectedRoute = ({ children }) => {
     const location = useLocation();
 

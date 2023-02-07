@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { UserOutlined, LogoutOutlined, DashboardOutlined, FormOutlined, OrderedListOutlined } from '@ant-design/icons';
 import logo from '../images/logo.png';
+import { getProfile } from '../utils/index';
 import './Navbar.css'
 
 function Navbar() {
-    const iconStyle = { fontSize: '18px', transition: '0.3s' }
+    const profileData = getProfile();
+    const iconStyle = { fontSize: '18px', transition: '0.3s' };
     const navbarItemWithIcon = [
         {
             itemName: 'Gatnaşyk almak',
@@ -26,7 +28,7 @@ function Navbar() {
             icon: <DashboardOutlined style={iconStyle} />
         },
         {
-            itemName: 'Maksat Akmyradow',
+            itemName: profileData.name + " " + profileData.surname,
             className: '',
             icon: <UserOutlined style={iconStyle} />
         },
