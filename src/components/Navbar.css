@@ -1,4 +1,4 @@
-.navbar_container{
+.navbar_container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -14,35 +14,36 @@
     font-weight: 400;
 }
 
-.navbar_items_container{
+.navbar_items_container {
     display: flex;
     align-items: center;
     flex-direction: row;
     gap: 30px;
 }
 
-.navbar_item{
+.navbar_item {
     display: flex;
     align-items: center;
     flex-direction: row;
-    gap: 5px;
+    gap: 7px;
     color: white;
     text-decoration: none;
 }
 
-.navbar_item p{
+.navbar_item p {
     display: flex;
     align-items: center;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 20px;
 }
 
-.navbar_item:hover{
+.navbar_item:hover {
     color: rgb(215, 215, 215);
 }
 
 
-.logo_container{
+.logo_container {
     display: flex;
     align-items: center;
     align-content: center;
@@ -50,11 +51,11 @@
 
 }
 
-.logo_container img{
+.logo_container img {
     width: 75px;
 }
 
-.logout{
+.logout {
     background-color: rgb(253, 22, 22);
     padding: 13px;
     border-radius: 10px;
@@ -62,7 +63,7 @@
     transition: 0.3s;
 }
 
-.logout:hover{
+.logout:hover {
     background-color: rgb(248, 88, 88);
     color: white;
 }

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getToken } from '../utils/index';
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
@@ -6,6 +7,7 @@ const axiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
     'Accept': "application/json",
+    'x-access-token': getToken()
   }
 });
 
