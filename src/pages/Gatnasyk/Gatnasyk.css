@@ -1,0 +1,61 @@
+.gatnasyk_page {
+    display: flex;
+    flex-direction: row;
+    margin: 35px;
+}
+
+.gatnasyk_sidebar_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    border: 1px rgb(233, 231, 231) solid;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 10px;
+}
+
+.gatnasyk_sidebar_search>input {
+    border: none;
+    font-size: 17px;
+    line-height: 17px;
+    color: rgb(151, 149, 149);
+}
+
+.gatnasyk_sidebar_search>input:focus-visible {
+    outline: none;
+}
+
+.gatnasyk_sidebar_item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    font-size: 20px;
+    margin: 10px 0;
+    height: 40px;
+    border-radius: 8px;
+    transition: 0.4s;
+    color: rgb(65, 64, 64);
+    border-bottom: 1px solid rgb(231, 230, 230);
+}
+
+.gatnasyk_sidebar_item p {
+    margin: 0;
+}
+
+.gatnasyk_sidebar_item:hover {
+    background-color: rgb(7, 7, 175);
+    color: white;
+    padding-left: 60px;
+}
+
+.active_gatnasyk_sidebar {
+    background-color: rgb(7, 7, 175);
+    color: white;
+    padding-left: 60px;
+}
+
+.gatnasyk_left_side {
+    width: 100%;
+    margin-left: 35px;
+}
