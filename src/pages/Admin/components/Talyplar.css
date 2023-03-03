@@ -1,0 +1,76 @@
+.talyplar_container {
+    padding: 0 35px;
+}
+
+.upper {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 20px;
+}
+
+.add_student_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(7, 7, 175);
+    color: white;
+    height: 35px;
+    font-size: 17px;
+    width: 95px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.4s
+}
+
+.add_student_button:hover {
+    background-color: rgb(16, 16, 236);
+}
+
+.delete_student {
+    /* background-color: red;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: white; */
+    color: red;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.delete_student:hover {
+    /* background-color: rgb(255, 29, 29); */
+    color: rgb(255, 29, 29);
+}
+
+.add_student_details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.drawer_left_side>p {
+    margin: 0;
+    line-height: 35px;
+    margin-bottom: 21px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.drawer_right_side {
+    width: 60%;
+    margin-left: 20px;
+}
+
+.drawer_right_side>input {
+    height: 35px;
+    width: 95%;
+    margin-bottom: 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid 1px grey;
+    padding: 0 10px;
+}
+
+.drawer_right_side>input:focus {
+    border: grey 1px solid;
+}

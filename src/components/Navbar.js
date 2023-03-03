@@ -8,6 +8,7 @@ import './Navbar.css'
 function Navbar() {
     const profileData = getProfile();
     const iconStyle = { fontSize: '20px', transition: '0.3s' };
+
     const navbarItemWithIcon = [
         {
             itemName: 'Gatnaşyk almak',
@@ -24,7 +25,7 @@ function Navbar() {
         {
             itemName: 'Admin',
             className: '',
-            href: '/admin',
+            href: '/admin/talyplar',
             icon: <DashboardOutlined style={iconStyle} />
         },
         {
@@ -35,9 +36,12 @@ function Navbar() {
         {
             itemName: 'Çykmak',
             className: 'logout',
-            icon: <LogoutOutlined style={iconStyle} />
+            href: '/',
+            icon: <LogoutOutlined style={iconStyle} />,
+            onclick: () => localStorage.removeItem('nyzam_profile_info')
         }
     ]
+
 
     return (
         <>
@@ -47,7 +51,7 @@ function Navbar() {
                 </div>
                 <div className="navbar_items_container">
                     {navbarItemWithIcon.map(item =>
-                        <Link className={`navbar_item ${item.className}`} to={item.href} key={item.itemName}>
+                        <Link className={`navbar_item ${item.className}`} to={item.href} key={item.itemName} onClick={item.onclick}>
                             {item.icon}
                             <p>{item.itemName}</p>
                         </Link>

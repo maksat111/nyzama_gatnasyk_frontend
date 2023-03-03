@@ -1,0 +1,43 @@
+.admin_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.admin_sidebar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70vw;
+    margin: auto;
+    height: 100px;
+}
+
+.admin_sidebar_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(4, 4, 161);
+    font-weight: 400;
+    border: 1px solid rgb(5, 5, 240);
+    height: 45px;
+    width: 200px;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+.active_sidebar_item {
+    background-color: rgb(7, 7, 175);
+    color: white;
+}
+
+.admin_sidebar_item:hover {
+    background-color: rgb(7, 7, 175);
+    color: white;
+}
+
+.admin_sidebar_item p {
+    margin: 0;
+    font-size: 17px;
+}

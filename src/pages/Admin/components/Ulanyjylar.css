@@ -1,0 +1,81 @@
+.ulanyjylar_container {
+    padding: 0 35px;
+
+}
+
+.ulanyjylar_upper {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0 25px;
+}
+
+.drawer_left_side>p {
+    margin: 0;
+    line-height: 35px;
+    margin-bottom: 21px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.drawer_right_side {
+    width: 60%;
+    margin-left: 20px;
+}
+
+.drawer_right_side>input {
+    height: 35px;
+    width: 95%;
+    margin-bottom: 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid 1px grey;
+    padding: 0 10px;
+}
+
+.drawer_right_side>input:focus {
+    border: grey 1px solid;
+}
+
+.add_user_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(7, 7, 175);
+    color: white;
+    height: 35px;
+    font-size: 17px;
+    width: 95px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.4s
+}
+
+.delete_teacher {
+    color: red;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.delete_teacher:hover {
+    color: rgb(250, 52, 52);
+}
+
+.add_teacher_details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add_teacher_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(7, 7, 175);
+    color: white;
+    height: 35px;
+    font-size: 17px;
+    width: 95px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.4s
+}
