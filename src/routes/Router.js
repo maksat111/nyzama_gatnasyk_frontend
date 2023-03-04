@@ -1,5 +1,6 @@
 import { React, lazy, Suspense } from 'react';
 import { useRoutes } from "react-router-dom";
+import Test from '../components/Test';
 
 const ProtectedRoute = lazy(() => import('./ProtectedRoute'));
 const Loading = lazy(() => import('../components/Loading'));
@@ -17,6 +18,10 @@ function Router() {
         {
             element: <Suspense fallback={<Loading size='60px' />}><Login /></Suspense>,
             path: '/'
+        },
+        {
+            element: <Suspense fallback={<Loading size='60px' />}><Test /></Suspense>,
+            path: '/test'
         },
         {
             element: <ProtectedRoute><Navbar /></ProtectedRoute>,

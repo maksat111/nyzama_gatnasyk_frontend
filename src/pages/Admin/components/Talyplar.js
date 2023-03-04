@@ -33,17 +33,19 @@ function Talyplar() {
             data.data.data.map(item => {
                 selectOptions.push({ label: item.group_number, value: item._id });
             });
-            const table = await axiosInstance.get(`students/${data.data.data[0]._id}`);
-            table.data.data.map((item) => tableData.push({
-                key: item._id,
-                name: item.name,
-                surname: item.surname,
-                major: item.group_id.group_major,
-                course: item.group_id.course,
-                group: item.group_id.group_number
-            }))
-            setTableData(tableData);
-            setSelect(selectOptions);
+            if (data.data.data.length > 0) {
+                const table = await axiosInstance.get(`students/${data.data.data[0]?._id}`);
+                table.data.data.map((item) => tableData.push({
+                    key: item._id,
+                    name: item.name,
+                    surname: item.surname,
+                    major: item.group_id.group_major,
+                    course: item.group_id.course,
+                    group: item.group_id.group_number
+                }))
+                setTableData(tableData);
+                setSelect(selectOptions);
+            }
         }).catch(err => {
             message.error('Yalnyslyk!')
             console.log(err);
