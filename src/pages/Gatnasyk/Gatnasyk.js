@@ -11,6 +11,7 @@ function Gatnasyk() {
     const [activeSidebar, setActiveSidebar] = useState(null);
     const [tableData, setTableData] = useState([]);
 
+    // Table datas and settings
     const columns = [
         {
             title: 'Ady',
@@ -99,13 +100,15 @@ function Gatnasyk() {
         })
     }, [])
 
+    // search options and etc
     const handleSearch = (event) => {
         setGozlegInput(event.target.value);
     }
 
     useEffect(() => {
         if (gozlegInput) {
-            axiosInstance.get('/groups/search').then((res) => {
+            axiosInstance.get(`/groups/search?group_number=${gozlegInput}`).then((res) => {
+                console.log(res)
                 setGozlegData(res.data.data);
             }).catch((err) => {
                 message.error('Yalnyslyk!');
@@ -113,6 +116,8 @@ function Gatnasyk() {
         }
     }, [gozlegInput])
 
+
+    ///sidebar functions
     const handleSidebarSelect = async (item) => {
         let tableData = [];
         setActiveSidebar(item);
@@ -128,6 +133,7 @@ function Gatnasyk() {
         setTableData(tableData);
     }
 
+    //confirm the breakings
     const handleConfirm = async () => {
         const filtered = tableData.filter(item => item.late == true || item.uniform == true || item.note !== null);
         filtered.forEach(element => {
@@ -161,15 +167,25 @@ function Gatnasyk() {
         <div className='gatnasyk_page' >
             <div className='gatnasyk_sidebar_container'>
                 <Input style={{ marginBottom: '15px' }} size='large' placeholder='Gözleg...' onChange={handleSearch} value={gozlegInput} allowClear />
-                {groups?.map((item) =>
-                    <div
-                        className={item == activeSidebar ? `gatnasyk_sidebar_item active_gatnasyk_sidebar` : 'gatnasyk_sidebar_item'}
-                        key={item._id}
-                        onClick={() => handleSidebarSelect(item)}
-                    >
-                        <p>{item.group_number}</p>
-                    </div>
-                )}
+                {gozlegInput == null || gozlegInput == ''
+                    ? groups?.map((item) =>
+                        <div
+                            className={item == activeSidebar ? `gatnasyk_sidebar_item active_gatnasyk_sidebar` : 'gatnasyk_sidebar_item'}
+                            key={item._id}
+                            onClick={() => handleSidebarSelect(item)}
+                        >
+                            <p>{item.group_number}</p>
+                        </div>
+                    )
+                    : gozlegdata?.map((item) =>
+                        <div
+                            className={item == activeSidebar ? `gatnasyk_sidebar_item active_gatnasyk_sidebar` : 'gatnasyk_sidebar_item'}
+                            key={item._id}
+                            onClick={() => handleSidebarSelect(item)}
+                        >
+                            <p>{item.group_number}</p>
+                        </div>
+                    )}
             </div>
             <div className='gatnasyk_right_side'>
                 <Table
