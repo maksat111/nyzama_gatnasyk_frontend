@@ -5,7 +5,8 @@ import './Gatnasyk.css';
 import Checkbox from 'antd/es/checkbox/Checkbox';
 
 function Gatnasyk() {
-    const [gozlegInput, setGozlegInput] = useState('');
+    const [gozlegInput, setGozlegInput] = useState(null);
+    const [gozlegdata, setGozlegData] = useState(null);
     const [groups, setGroups] = useState([]);
     const [activeSidebar, setActiveSidebar] = useState(null);
     const [tableData, setTableData] = useState([]);
@@ -101,6 +102,16 @@ function Gatnasyk() {
     const handleSearch = (event) => {
         setGozlegInput(event.target.value);
     }
+
+    useEffect(() => {
+        if (gozlegInput) {
+            axiosInstance.get('/groups/search').then((res) => {
+                setGozlegData(res.data.data);
+            }).catch((err) => {
+                message.error('Yalnyslyk!');
+            })
+        }
+    }, [gozlegInput])
 
     const handleSidebarSelect = async (item) => {
         let tableData = [];
