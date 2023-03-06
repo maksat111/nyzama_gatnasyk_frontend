@@ -1,0 +1,14 @@
+.datePicker_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.ant-checkbox-disabled .ant-checkbox-inner:after {
+    border-color: #ffffff;
+}
+
+.ant-input[disabled] {
+    color: #000000;
+}
