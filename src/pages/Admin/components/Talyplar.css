@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     margin: 10px 0 20px;
+    height: 50px;
 }
 
 .add_student_button {
@@ -73,4 +74,24 @@
 
 .drawer_right_side>input:focus {
     border: grey 1px solid;
+}
+
+.delete_group_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(253, 22, 22);
+    color: white;
+    height: 35px;
+    font-size: 17px;
+    width: 95px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.4s
+}
+
+.students_button_container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }

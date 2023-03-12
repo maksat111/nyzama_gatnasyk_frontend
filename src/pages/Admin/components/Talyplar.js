@@ -6,23 +6,33 @@ import './Talyplar.css';
 
 function Talyplar() {
     const [open, setOpen] = useState(false);
+    const [openDelete, setOpenDelete] = useState(false);
     const [groups, setGroups] = useState(null);
     const [select, setSelect] = useState([]);
     const [tableData, setTableData] = useState([]);
+    const [selectedGroup, setSelectedGroup] = useState('');
     const [studentForm, setStudentForm] = useState({
         name: '',
         surname: '',
         group: '',
         major: '',
         course: ''
-    })
+    });
 
     const showDrawer = () => {
         setOpen(true);
     }
 
+    const showDeleteDrawer = () => {
+        setOpenDelete(true);
+    }
+
     const onClose = () => {
         setOpen(false);
+    }
+
+    const onDeleteClose = () => {
+        setOpenDelete(false);
     }
 
     useEffect(() => {
@@ -113,6 +123,10 @@ function Talyplar() {
         setStudentForm({ ...studentForm, [e.target.name]: e.target.value });
     }
 
+    const handleGroupDelete = (e) => {
+        setSelectedGroup(e.target.value)
+    }
+
     const handleAdd = async (e) => {
         try {
             e.preventDefault();
@@ -130,6 +144,18 @@ function Talyplar() {
         }
     }
 
+    const handleDelete = async (e) => {
+        try {
+            e.preventDefault();
+            const index = groups.findIndex(item => item.group_number == selectedGroup);
+            console.log(index);
+            const detele = await axiosInstance.delete(`groups/delete/${groups[index]._id}`);
+            message.success("Üstünlikli!");
+        } catch (err) {
+            message.error('Yalnyslyk!')
+        }
+    }
+
     return (
         <div className='talyplar_container'>
             <div className="upper">
@@ -140,9 +166,11 @@ function Talyplar() {
                     onSelect={handleSelect}
                     style={{
                         width: 200,
+                        height: 'fit-content'
                     }}
                 />
-                <div>
+                <div className='students_button_container'>
+                    <button type='submit' style={{ margin: '30px auto', border: 'none' }} className='delete_group_button' onClick={showDeleteDrawer}>Pozmak</button>
                     <div className='add_student_button' onClick={showDrawer}>Goşmak</div>
                     <Drawer title="Talybyň maglumatlaryny giriziň" width={'500px'} placement="right" onClose={onClose} open={open}>
                         <form onSubmit={handleAdd}>
@@ -163,6 +191,19 @@ function Talyplar() {
                                 </div>
                             </div>
                             <button type='submit' style={{ margin: '30px auto', border: 'none' }} className='add_student_button' onClick={handleAdd}>Goşmak</button>
+                        </form>
+                    </Drawer>
+                    <Drawer title="Toparyň maglumatlaryny giriziň" width={'400px'} placement="right" onClose={onDeleteClose} open={openDelete}>
+                        <form onSubmit={handleDelete}>
+                            <div className='add_student_details'>
+                                <div className='drawer_left_side'>
+                                    <p>Topar:</p>
+                                </div>
+                                <div className='drawer_right_side'>
+                                    <input placeholder='Topary giriziň' type='number' name='name' required value={selectedGroup} onChange={handleGroupDelete} />
+                                </div>
+                            </div>
+                            <button type='submit' style={{ margin: '30px auto', border: 'none' }} className='delete_group_button' onClick={handleDelete}>Pozmak</button>
                         </form>
                     </Drawer>
                 </div>
